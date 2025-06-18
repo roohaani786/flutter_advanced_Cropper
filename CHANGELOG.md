@@ -1,4 +1,4 @@
-## 0.0.1
+## 1.0.0
 
 - **Smooth Interactive Cropping**: Drag handles with haptic feedback and smooth animations
 - **Image Rotation**: Built-in rotation support with 90-degree increments
