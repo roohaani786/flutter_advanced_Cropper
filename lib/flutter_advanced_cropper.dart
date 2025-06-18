@@ -17,8 +17,6 @@ class ImageCropperScreen extends StatefulWidget {
   State<ImageCropperScreen> createState() => _ImageCropperScreenState();
 }
 
-//hello
-
 class _ImageCropperScreenState extends State<ImageCropperScreen>
     with TickerProviderStateMixin {
   bool _isHighResLoaded = false;
