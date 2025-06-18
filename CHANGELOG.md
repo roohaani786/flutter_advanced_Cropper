@@ -1,3 +1,5 @@
+## 1.0.3
+--** Basic usage updated and example code added
 
 ## 1.0.2
 --**Screenshot issue fixed

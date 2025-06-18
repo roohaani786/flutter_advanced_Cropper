@@ -38,156 +38,30 @@ flutter pub get
 ### Basic Usage
 
 ```dart
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:flutter_advanced_cropper/flutter_advanced_cropper.dart';
+void cropImage(BuildContext context, File originalImageFile) async {
+  // Navigate to cropper screen
+  final File? croppedFile = await Navigator.push<File>(
+    context,
+    MaterialPageRoute(
+      builder: (context) => ImageCropperScreen(imageFile: originalImageFile),
+    ),
+  );
 
-class CropExample extends StatelessWidget {
-  final File imageFile;
-
-  const CropExample({Key? key, required this.imageFile}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: AdvancedImageCropper(
-        imageFile: imageFile,
-      ),
-    );
-  }
-}
-```
-
-### Navigation Example
-
-```dart
-// Navigate to cropper screen
-final File? croppedFile = await Navigator.push<File>(
-context,
-MaterialPageRoute(
-builder: (context) => AdvancedImageCropper(
-imageFile: originalImageFile,
-),
-),
-);
-
-if (croppedFile != null) {
-// Use the cropped image
-print('Cropped image saved to: ${croppedFile.path}');
-}
-```
-
-## Advanced Usage
-
-### Complete Integration Example
-
-```dart
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:flutter_advanced_cropper/flutter_advanced_cropper.dart';
-
-class ImageCropperDemo extends StatefulWidget {
-  @override
-  _ImageCropperDemoState createState() => _ImageCropperDemoState();
-}
-
-class _ImageCropperDemoState extends State<ImageCropperDemo> {
-  File? _originalImage;
-  File? _croppedImage;
-  final ImagePicker _picker = ImagePicker();
-
-  Future<void> _pickImage() async {
-    final XFile? image = await _picker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 100,
-    );
-
-    if (image != null) {
-      setState(() {
-        _originalImage = File(image.path);
-      });
-      _cropImage();
-    }
-  }
-
-  Future<void> _cropImage() async {
-    if (_originalImage == null) return;
-
-    final File? croppedFile = await Navigator.push<File>(
+  if (croppedFile != null) {
+    // Preview the cropped image in a new screen
+    Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AdvancedImageCropper(
-          imageFile: _originalImage!,
-        ),
-      ),
-    );
-
-    if (croppedFile != null) {
-      setState(() {
-        _croppedImage = croppedFile;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Advanced Image Cropper Demo'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (_croppedImage != null)
-              Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Image.file(
-                  _croppedImage!,
-                  fit: BoxFit.cover,
-                ),
-              )
-            else
-              Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(
-                  Icons.image,
-                  size: 50,
-                  color: Colors.grey,
-                ),
-              ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _pickImage,
-              child: Text('Pick & Crop Image'),
-            ),
-            if (_croppedImage != null) ...[
-              SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: _cropImage,
-                child: Text('Crop Again'),
-              ),
-            ],
-          ],
+        builder:
+            (context) => Scaffold(
+          appBar: AppBar(title: const Text('Cropped Image Preview')),
+          body: Center(child: Image.file(croppedFile)),
         ),
       ),
     );
   }
 }
 ```
-
-## API Reference
 
 ### AdvancedImageCropper
 
