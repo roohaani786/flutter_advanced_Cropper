@@ -1,4 +1,6 @@
 
+## 1.0.2
+--**Screenshot issue fixed
 
 ## 1.0.1
 --**Screenshot added
