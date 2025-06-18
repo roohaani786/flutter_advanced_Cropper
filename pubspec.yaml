@@ -1,6 +1,6 @@
 name: flutter_advanced_cropper
 description: "A powerful and intuitive Flutter package for cropping images with advanced features including rotation, smooth animations, and high-quality output."
-version: 1.0.0
+version: 1.0.1
 homepage: "https://github.com/roohaani786/flutter_advanced_Cropper"
 repository: "https://github.com/roohaani786/flutter_advanced_Cropper"
 issue_tracker: "https://github.com/roohaani786/flutter_advanced_Cropper/issues"
