@@ -1,3 +1,6 @@
+## 1.0.4
+--** More fixes
+
 ## 1.0.3
 --** Basic usage updated and example code added
 
