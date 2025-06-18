@@ -15,7 +15,7 @@ A powerful and intuitive Flutter package for cropping images with advanced featu
 
 ## Screenshots
 
-![Cropper Screenshot](assets/cropper_preview.jpeg)
+<img src="assets/cropper_preview.jpeg" alt="Cropper Screenshot" width="600" height="400" />
 
 ## Installation
 
