@@ -1,3 +1,8 @@
+
+
+## 1.0.1
+--**Screenshot added
+
 ## 1.0.0
 
 - **Smooth Interactive Cropping**: Drag handles with haptic feedback and smooth animations
