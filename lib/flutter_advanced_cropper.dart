@@ -539,7 +539,7 @@ class _ImageCropperScreenState extends State<ImageCropperScreen>
               backgroundColor: Colors.white.withAlpha((0.1 * 255).round()),
               leading: IconButton(
                 onPressed: () => Navigator.pop(context),
-                icon: const Icon(CupertinoIcons.back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
               ),
               elevation: 0,
               centerTitle: true,
